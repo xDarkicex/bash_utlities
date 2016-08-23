@@ -2,7 +2,7 @@
 
 These are a collection of my current bash utilities, they are hosted on github because sharing is caring.
 
-To run these files properly you will need to set up a loop to import the files and alias this should be done within your '.bashrc'
+To run these files properly you will need to set up a loop to import the files and alias this should be done within your `.bashrc`
 
 I have installed my utilities in a hidden folder named utilities, you can source them in any location you find convenient.
 
