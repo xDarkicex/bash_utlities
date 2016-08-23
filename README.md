@@ -9,7 +9,7 @@ I have installed my utilities in a hidden folder named utilities, you can source
 `shopt -s expand_aliases
 for f in ~/.utilities/*.sh; do source $f; done`
 
-You will need to setup an importer in your .bash_profile
+You will need to setup an importer in your `.bash_profile`
 
 `if [ -f ~/.bashrc ]; then
    source ~/.bashrc
