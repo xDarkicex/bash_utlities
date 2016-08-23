@@ -1,0 +1,7 @@
+alias gs='git show --pretty=oneline'
+alias gpom='git push origin master'
+alias gpod='git push origin development'
+alias grom='git reset --hard origin/master'
+alias gp='git pull'
+alias fullgit='git add . && wtc && git push origin master'
+alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'

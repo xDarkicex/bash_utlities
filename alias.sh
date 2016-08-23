@@ -1,21 +1,15 @@
-alias ws='cd ~/Desktop/webdesign && ls'
+#!/bin/bash -i
+alias webhome='cd ~/Desktop/webdesign && ls'
 alias railshome='cd ~/Desktop/webdesign/rails-apps/ && ls'
-alias HOME='cd ~ && ls'
+alias Home='cd ~ && ls'
 alias bashrc='nano ~/.bashrc'
 alias root='sudo su'
-alias gohome='cd ~/Desktop/goworkspace/src/github.com/xDarkicex/ && ls'
-alias javahome='cd ~/Desktop/java/ && ls'
-alias javaclass='cd ~/Desktop/java/JAVA-CLASS/ && ls'
 alias dbm='rake db:migrate'
 alias Desktop='cd ~/Desktop && ls'
 alias abc='echo a b c d e f g h i j k l m n o p q r s t u v w x y z'
-alias bsc='git add .; git commit -a -m "Bull Shit Commit"; git push origin master'
-alias fullgit='git add . && wtc && git push origin master'
 # Short things are better (git)
-alias gs='git show --pretty=oneline'
-alias gpom='git push origin master'
-alias gpod='git push origin development'
-alias grom='git reset --hard origin/master'
-alias gp='git pull'
 alias nanobash='nano ~/.bash_profile'
 alias up='cd .. && ls'
+#
+# HOME() { cd ~ && ls; }
+# export -f HOME

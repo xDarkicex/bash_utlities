@@ -29,3 +29,9 @@ function coldbrew(){
   fi
   echo "}" >> $1.java
 }
+
+
+#java alias
+
+alias javahome='cd ~/Desktop/java/ && ls'
+alias javaclass='cd ~/Desktop/java/JAVA-CLASS/ && ls'
