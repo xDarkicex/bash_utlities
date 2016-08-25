@@ -31,7 +31,6 @@ function utilities() {
     echo "settings"
     echo "functions"
     echo "startup"
-    echo "overrides"
     echo "git"
     echo "java"
     echo "go"
@@ -53,10 +52,6 @@ function utilities() {
   if [ "$1" == "startup" ]; then
     cd ~/.utilities &&
     open startup.sh
-  fi
-  if [ "$1" == "overrides" ]; then
-    cd ~/.utilities &&
-    open overrides.sh
   fi
   if [ "$1" == "git" ]; then
     cd ~/.utilities &&
