@@ -10,3 +10,13 @@ function cdls() {
   cd "$@" &&
   ls;
 }
+#bash login override
+function refresh() {
+  clear &&
+  bash --login;
+
+}
+
+function openweb(){
+  open -a "google chrome" $1
+}
