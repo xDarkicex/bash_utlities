@@ -1,3 +1,40 @@
+#
+#Set Colors
+#
+
+bold=$(tput bold)
+underline=$(tput sgr 0 1)
+reset=$(tput sgr0)
+
+purple=$(tput setaf 171)
+red=$(tput setaf 1)
+green=$(tput setaf 76)
+tan=$(tput setaf 3)
+blue=$(tput setaf 38)
+
+#
+# Headers and  Logging
+#
+
+e_header() { printf "\n${bold}${purple}==========  %s  ==========${reset}\n" "$@"
+}
+e_arrow() { printf "➜ $@\n"
+}
+e_success() { printf "${green}✔ %s${reset}\n" "$@"
+}
+e_error() { printf "${red}✖ %s${reset}\n" "$@"
+}
+e_warning() { printf "${tan}➜ %s${reset}\n" "$@"
+}
+e_underline() { printf "${underline}${bold}%s${reset}\n" "$@"
+}
+e_bold() { printf "${bold}%s${reset}\n" "$@"
+}
+e_note() { printf "${underline}${bold}${blue}Note:${reset}  ${blue}%s${reset}\n" "$@"
+}
+
+
+
 #make and cd in dir
 alias ls='ls -GFh'
 
@@ -10,13 +47,21 @@ function cdls() {
   cd "$@" &&
   ls;
 }
+# cd() { builtin cd "$@" && ls; }
 #bash login override
 function refresh() {
   clear &&
+  printf '\e[3J'
   bash --login;
+}
+function findall() {
+  sudo find / -iname *.app
 }
 function openweb() {
   open -a "google chrome" $1
+}
+function openatom() {
+  open -a "Atom Beta.app" $1
 }
 function rename(){
   mv $1 $2
@@ -35,7 +80,7 @@ function utilities() {
     echo "java"
     echo "go"
     echo "help Will bring you here."
-    echo "--utilites will take you to the utilites directory."
+    echo "cd will take you to the utilites directory."
   fi
   if [ "$1" == "alias" ]; then
     cd ~/.utilities &&
@@ -65,7 +110,7 @@ function utilities() {
     cd ~/.utilities &&
     open goutilities.sh
   fi
-  if [ "$1" == "utilities" ]; then
+  if [ "$1" == "cd" ]; then
     cd ~/.utilities &&
     ls
   else
