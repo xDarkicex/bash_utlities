@@ -14,6 +14,11 @@ alias lynx='/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx'
 alias irc="irssi"
 # MacOS log
 alias msg='tail -f /var/log/system.log'
+# Flush your dns cache
+alias flush='dscacheutil -flushcache'
+# Get rid of those pesky .DS_Store files recursively
+alias dsclean='find . -type f -name .DS_Store -delete'
+#thefuck app
 alias fuck='eval $(thefuck $(fc -ln -1))'
 #java alias
 
@@ -33,3 +38,11 @@ alias mongostart='mongod run'
 
 # Redis
 alias redisstart='redis-server /usr/local/etc/redis.conf'
+
+
+# Mute/Unmute the system volume. Plays nice with all other volume settings.
+alias mute="osascript -e 'set volume output muted true'"
+alias unmute="osascript -e 'set volume output muted false'"
+# Pin to the tail of long commands for an audible alert after long processes
+## curl http://downloads.com/hugefile.zip; lmk
+alias lmk="say 'Process complete.'"

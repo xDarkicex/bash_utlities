@@ -68,20 +68,33 @@ function rename(){
 }
 function utilities() {
   current_location=${PWD}
-
+  if (( $# !=1 )); then
+    echo "
+----------------------------------------------------------------------------------
+#       To use this Function please provide a utility you would like to edit.
+#       List of availible Options:
+#       [alias] | [settings] | [functions]
+#       [startup] | [git] | [java]
+#       [go] | [gitalias] | [help]
+#       [cd]
+#
+#
+----------------------------------------------------------------------------------
+    "
+  fi
   if [ "$1" == "help" ]; then
-    echo "To use this Function please provide a utility you would like to edit."
-    echo "List of availible Options: "
-    echo "alias"
-    echo "settings"
-    echo "functions"
-    echo "startup"
-    echo "git"
-    echo "java"
-    echo "go"
-    echo "gitalias"
-    echo "help Will bring you here."
-    echo "cd will take you to the utilites directory."
+    echo "
+----------------------------------------------------------------------------------
+#       To use this Function please provide a utility you would like to edit.
+#       List of availible Options:
+#       [alias] | [settings] | [functions]
+#       [startup] | [git] | [java]
+#       [go] | [gitalias] | [help]
+#       [cd]
+#
+#
+----------------------------------------------------------------------------------
+    "
   fi
   if [ "$1" == "alias" ]; then
     cd ~/.utilities &&
@@ -132,7 +145,7 @@ function gitinit() {
   echo "*DS_Store" > .gitignore &&
   echo "#README ${project_name}" > README.md &&
   git add . &&
-  git commit -m "init commit" &&
+  git commit -m "init commit ${project_name}" &&
   git remote add origin $2 &&
   git push -u origin master
 }
