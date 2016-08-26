@@ -117,3 +117,15 @@ function utilities() {
     cd ${current_location}
   fi
 }
+
+function gitinit() {
+  project_name=$1
+  git_repo=$2
+  git init &&
+  echo "*DS_Store" > .gitignore &&
+  echo "#README ${project_name}" > README.md &&
+  git add . &&
+  git commit -m "init commit" &&
+  git remote add origin $2 &&
+  git push -u origin master
+}
