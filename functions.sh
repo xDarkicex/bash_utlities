@@ -79,6 +79,7 @@ function utilities() {
     echo "git"
     echo "java"
     echo "go"
+    echo "gitalias"
     echo "help Will bring you here."
     echo "cd will take you to the utilites directory."
   fi
@@ -106,6 +107,10 @@ function utilities() {
     cd ~/.utilities &&
     open javautilites.sh
   fi
+  if [ "$1" == "gitalias" ]; then
+    cd ~/.utilities &&
+    open gitalias.sh
+  fi
   if [ "$1" == "go" ]; then
     cd ~/.utilities &&
     open goutilities.sh
@@ -118,6 +123,8 @@ function utilities() {
   fi
 }
 
+
+#AWESOME GIT SETUP SHORT CUT FEED a Project name and a git url for this to work properly
 function gitinit() {
   project_name=$1
   git_repo=$2
