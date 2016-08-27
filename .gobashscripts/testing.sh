@@ -1,3 +1,5 @@
+#!/bin/bash
+#Test files
 version="1.0.0"
 go_version="1.7"
 go_url="https://storage.googleapis.com/golang/go1.7.darwin-amd64.pkg"
