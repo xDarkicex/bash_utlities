@@ -17,10 +17,6 @@ if (( $# !=1 )); then
 
   }" >> $foo.go
 
-  echo "  func main(){
-
-
-  }" >> $foo.go
 elif [ -n "$1" ]; then
   name=$1
   foo=`echo ${name:0:1} | tr  '[a-z]' '[A-Z]'`${name:1}
@@ -31,12 +27,13 @@ elif [ -n "$1" ]; then
   echo "  func init(){
 
   }" >> $foo.go
-fi
 
+fi
   echo "  func main(){
 
 
 }" >> $foo.go
+
 }
 
 #Make simple go directory
