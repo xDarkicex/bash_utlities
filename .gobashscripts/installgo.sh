@@ -5,7 +5,7 @@ try() { "$@" || die "cannot $*"; }
 os=$(uname -s)
 # setup panic err control will close setup
 if [ -z $os ]; then die "Panic system does not have uname installed"; fi
-version="2.0.0"
+version="2.2.0"
 options=("Curl" "Wget")
 workspace=("Desktop" "Documents")
 PS3='Please enter your choice: '
@@ -25,14 +25,14 @@ urlgo=$(echo $go_url | grep -Eo '\d+?(\.\d+)+?');
 local_dir=${PWD}
 echo "
 ---------------------------------------------------------------------------------------------
-#  Automated Golang installer
-#  ----------------------
-#  | Version #$version     |
-#  ----------------------
-#  By: Gentry Rolofson
-#  More info: https://bitdev.io
-#  Github: @xDarkicex
-#
+#  Automated Golang installer                                                               #
+#  ----------------------                                                                   #
+#  | Version #$version     |                                                                   #
+#  ----------------------                                                                   #
+#  By: Gentry Rolofson                                                                      #
+#  More info: https://bitdev.io                                                             #
+#  Github: @xDarkicex                                                                       #
+#                                                                                           #
 ---------------------------------------------------------------------------------------------
 "
 
@@ -70,8 +70,8 @@ fmt.Printf(\"hello, world\n\")
   Path='$PATH'
   cd ~ &&
           echo "export GOROOT=\"/usr/local/go\"
-export GOPATH=\"$HOME/${workspace_dir}/goworkspace\"
-export PATH=\"$HOME/${workspace_dir}/goworkspace/bin:$Path\"" >> .bash_profile &&
+export GOPATH=\"$HOME/${workspace_dir}/goworkspace/src/${username}\"
+export PATH=\"$HOME/${workspace_dir}/goworkspace/bin:${Path}\"" >> .bash_profile &&
           go env;
   cd ${local_dir}
 }
@@ -175,6 +175,21 @@ function update() {
       esac
     done
 }
+echo "Force update
+Warning Will Put you on Edge Versions of go.
+Options: [1||2]"
+force=("Yes" "No")
+    select opt in "${force[@]}"; do
+      case $opt in 
+        "Yes")
+        update
+        break
+          ;;
+        "No")
+       break
+         ;;
+    esac
+  done
 go_exists=$(which go)
 if [ -z "$go_exists" ]
  then
@@ -182,14 +197,20 @@ if [ -z "$go_exists" ]
 elif [ "${localgo}" == "${urlgo}" ]
  then
   echo "You are on  the most current version of golang ${localgo}"
+  go env
 
-else
-  update
-fi
-echo "
+  echo "
           -------------------------------------------------------------
-          #         *******     congratulations      *******
-          #
-          #         goLang Version $go_version $os installed!
+          #         *******     congratulations      *******          #
+          #                                                           #
+          #         goLang Version $go_version $os installed!              #  
           -------------------------------------------------------------
 "
+  exit 0
+else
+
+## Everything else EXIT 0
+ exit 1
+fi
+
+

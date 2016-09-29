@@ -25,13 +25,13 @@ if (( $# !=1 )); then
   foo=`echo ${current_dir:0:1} | tr  '[a-z]' '[A-Z]'`${current_dir:1}
   echo "public class ${foo}{" > $foo.java
   echo "  ${foo}(){ System.out.println(\"${foo} constructor\"); }" >> $foo.java
+  echo "  public static void main(String args[]){ }" >> $1.java
 elif [ -n "$1" ]; then
   name=$1
   foo=`echo ${name:0:1} | tr  '[a-z]' '[A-Z]'`${name:1}
   echo "public class ${foo}{" > $1.java
   echo "  ${foo}(){ System.out.println(\"${foo} constructor\"); }" >> $1.java
-else [ "$2" == "--main" ];
-    echo "  public static void main(String args[]){ }" >> $1.java
+  echo "  public static void main(String args[]){ }" >> $1.java
   fi
   echo "}" >> $1.java
 }

@@ -149,3 +149,31 @@ function gitinit() {
   git remote add origin $2 &&
   git push -u origin master
 }
+
+function note() {
+username="xDarkicex"
+version="0.0.2"
+write="writer.go"
+read="reader.go"
+run="main.go"
+local=${PWD}
+echo "GoPad github.com @xdarkicex"
+
+if [ "$1" == "read" ]; then
+    cd $GOPATH/src/github.com/${username}/writer/ &&
+    go run ${read} &&
+    cd ${PWD}
+
+fi
+if [ "$1" == "config" ]; then
+    open $GOPATH/src/github.com/${username}/writer/config/config.Go &&
+    cd ${PWD}
+
+fi
+if (( $# !=1 )); then
+cd $GOPATH/src/github.com/${username}/writer/ &&
+go run ${run} &&
+cd ${PWD};
+fi
+}
+ 
